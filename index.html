@@ -7,40 +7,100 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<body class="bg-slate-900 text-white min-h-screen font-sans border-t-8 border-yellow-400">
+<body class="bg-slate-900 text-white min-h-screen font-sans border-t-8 border-yellow-400 overflow-x-hidden">
 
-  <!-- Header -->
-  <header class="bg-green-700 p-4 shadow-lg text-center border-b-4 border-yellow-400">
-    <h1 class="text-2xl font-black uppercase tracking-wider text-yellow-300">⚽ CAIXA - BAR DA COPA ⚽</h1>
+  <header class="bg-green-700 p-4 shadow-lg flex justify-between items-center border-b-4 border-yellow-400">
+    <h1 class="text-2xl font-black uppercase tracking-wider text-yellow-300">⚽ CAIXA - BAR RUA DA COPA ⚽</h1>
+    <button onclick="togglePainelEstoque()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-lg text-sm border-b-2 border-blue-800 transition-all uppercase tracking-wider">
+      ⚙️ Estoque
+    </button>
   </header>
 
   <main class="max-w-4xl mx-auto p-4 grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-    <!-- Formulário de Pedidos -->
-    <div class="bg-slate-800 p-6 rounded-xl border-2 border-green-600 shadow-2xl">
-      <h2 class="text-xl font-bold mb-4 text-yellow-400 uppercase">Novo Pedido</h2>
-      
-      <div class="space-y-4">
-        <div>
-          <label class="block text-sm font-semibold mb-1">Itens do Churrasco / Camarão:</label>
-          <textarea id="itens-pedido" rows="3" class="w-full p-3 bg-slate-700 border-2 border-slate-600 rounded-lg text-white font-bold focus:border-yellow-400 focus:outline-none" placeholder="Ex: 2x Espetinho de Carne, 1x Camarão Alho e Óleo"></textarea>
-        </div>
+    <div class="bg-slate-800 p-6 rounded-xl border-2 border-green-600 shadow-2xl flex flex-col justify-between">
+      <div>
+        <h2 class="text-xl font-bold mb-4 text-yellow-400 uppercase tracking-wide flex justify-between items-center">
+          <span>🍢 Selecione os Churrascos</span>
+          <button onclick="limparContadores()" class="text-xs bg-slate-700 hover:bg-slate-600 text-slate-300 px-2 py-1 rounded transition-colors">Limpar</button>
+        </h2>
         
-        <button id="btn-finalizar" class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-4 rounded-lg uppercase tracking-wide transition-all border-b-4 border-green-800 active:border-b-0 text-lg">
-          ⚽ Confirmar Pedido
-        </button>
+        <div class="space-y-3 mb-6" id="lista-churrascos">
+          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
+            <div>
+              <span class="font-bold text-lg uppercase tracking-wide block">🥩 Carne</span>
+              <span id="disponivel-carne" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <button type="button" onclick="alterarQuantidade('carne', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <span id="qtd-carne" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
+              <button type="button" onclick="alterarQuantidade('carne', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
+            <div>
+              <span class="font-bold text-lg uppercase tracking-wide block">🧀 Queijo</span>
+              <span id="disponivel-queijo" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <button type="button" onclick="alterarQuantidade('queijo', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <span id="qtd-queijo" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
+              <button type="button" onclick="alterarQuantidade('queijo', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
+            <div>
+              <span class="font-bold text-lg uppercase tracking-wide block">🍗 Frango</span>
+              <span id="disponivel-frango" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <button type="button" onclick="alterarQuantidade('frango', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <span id="qtd-frango" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
+              <button type="button" onclick="alterarQuantidade('frango', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
+            <div>
+              <span class="font-bold text-lg uppercase tracking-wide block">👅 Língua</span>
+              <span id="disponivel-lingua" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <button type="button" onclick="alterarQuantidade('lingua', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <span id="qtd-lingua" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
+              <button type="button" onclick="alterarQuantidade('lingua', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
+            <div>
+              <span class="font-bold text-lg uppercase tracking-wide block">🍕 Calabresa</span>
+              <span id="disponivel-calabresa" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <button type="button" onclick="alterarQuantidade('calabresa', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <span id="qtd-calabresa" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
+              <button type="button" onclick="alterarQuantidade('calabresa', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+            </div>
+          </div>
+        </div>
       </div>
+      
+      <button id="btn-finalizar" class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-4 rounded-lg uppercase tracking-wide transition-all border-b-4 border-green-800 active:border-b-0 text-lg">
+        ⚽ Confirmar Pedido
+      </button>
     </div>
 
-    <!-- Painel de Saída (QR Code / Senha) -->
-    <div class="bg-slate-800 p-6 rounded-xl border-2 border-blue-600 flex flex-col items-center justify-center text-center shadow-2xl">
+    <div class="bg-slate-800 p-6 rounded-xl border-2 border-blue-600 flex flex-col items-center justify-center text-center shadow-2xl min-h-[450px]">
       <div id="resultado-pedido" class="hidden space-y-4">
         <h3 class="text-xl font-black text-green-400">PEDIDO GERADO COM SUCESSO!</h3>
         <div class="bg-yellow-400 text-slate-900 font-black text-4xl py-2 px-6 rounded-full inline-block shadow-md">
           SENHA: #<span id="txt-senha">00</span>
         </div>
-        <p class="text-sm text-slate-300">Peça para o cliente escanear o QR Code abaixo para acompanhar a fila pelo bolso:</p>
+        <p class="text-sm text-slate-300">Peça para o cliente escanear o QR Code para acompanhar a fila:</p>
         <div class="bg-white p-3 rounded-lg inline-block shadow-inner">
-          <img id="img-qrcode" src="" alt="QR Code do Pedido" class="w-48 h-48">
+          <img id="img-qrcode" src="" alt="QR Code" class="w-48 h-48">
         </div>
       </div>
       
@@ -50,45 +110,157 @@
     </div>
   </main>
 
+  <div id="gaveta-estoque" class="fixed top-0 right-0 h-full w-80 bg-slate-800 border-l-4 border-yellow-400 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 p-6 flex flex-col justify-between">
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-black text-yellow-400 uppercase">⚙️ Ajustar Insumos</h2>
+        <button onclick="togglePainelEstoque()" class="text-slate-400 hover:text-white font-bold text-2xl">&times;</button>
+      </div>
+      
+      <div class="space-y-4">
+        <div class="space-y-1">
+          <label class="text-sm font-bold uppercase block text-green-400">🥩 Carne</label>
+          <input type="number" id="input-est-carne" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm font-bold uppercase block text-green-400">🧀 Queijo</label>
+          <input type="number" id="input-est-queijo" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm font-bold uppercase block text-green-400">🍗 Frango</label>
+          <input type="number" id="input-est-frango" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm font-bold uppercase block text-green-400">👅 Língua</label>
+          <input type="number" id="input-est-lingua" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm font-bold uppercase block text-green-400">🍕 Calabresa</label>
+          <input type="number" id="input-est-calabresa" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+        </div>
+      </div>
+    </div>
+
+    <button onclick="salvarEstoqueManual()" class="w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-black py-3 rounded-lg uppercase tracking-wider text-sm transition-colors mt-4">
+      💾 Salvar Novo Estoque
+    </button>
+  </div>
+
   <script src="./supabase.js"></script>
 
+  <script>
+    const pedidoAtual = { carne: 0, queijo: 0, frango: 0, lingua: 0, calabresa: 0 };
+    const estoqueAtual = { carne: 0, queijo: 0, frango: 0, lingua: 0, calabresa: 0 };
 
-
-<script>
-  // Remova qualquer linha que tente fazer "const supabase = ..." aqui dentro,
-  // pois a conexão já está vindo do seu arquivo './supabase.js' como 'supabaseClient'
-
-  document.getElementById('btn-finalizar').addEventListener('click', async () => {
-    const itensValue = document.getElementById('itens-pedido').value;
-    if (!itensValue.trim()) return alert('Digite os itens do pedido!');
-
-    // 🔥 CORREÇÃO AQUI: Mudamos de 'supabase.from' para 'supabaseClient.from'
-    const { data, error } = await supabaseClient
-      .from('pedidos')
-      .insert([{ itens: itensValue, status: 'pendente' }])
-      .select()
-      .single();
-
-    if (error) {
-      alert('Erro ao salvar pedido: ' + error.message);
-      return;
+    // Busca estoque inicial do banco
+    async function carregarEstoque() {
+      const { data } = await supabaseClient.from('estoque').select('*');
+      if (data) {
+        data.forEach(reg => {
+          estoqueAtual[reg.item] = reg.quantidade_disponivel;
+          atualizarContadorVisualEstoque(reg.item);
+        });
+      }
     }
 
-    // URL que o cliente vai acessar (Ajuste para o seu domínio real depois)
-    const urlCliente = `https://bar-rc.vercel.app/cliente.html?id=${data.id}`;
-    
-    // Gera o QR Code dinamicamente
-    const qrCodeUrl = `https://quickchart.io/qr?text=${encodeURIComponent(urlCliente)}&size=200&margin=1`;
+    function atualizarContadorVisualEstoque(item) {
+      const elemento = document.getElementById(`disponivel-${item}`);
+      if (elemento) elemento.innerText = `(Disponível: ${estoqueAtual[item]})`;
+      
+      const inputManual = document.getElementById(`input-est-${item}`);
+      if (inputManual) inputManual.value = estoqueAtual[item];
+    }
 
-    // Atualiza a interface do Caixa
-    document.getElementById('txt-senha').innerText = data.senha;
-    document.getElementById('img-qrcode').src = qrCodeUrl;
-    document.getElementById('placeholder-caixa').classList.add('hidden');
-    document.getElementById('resultado-pedido').classList.remove('hidden');
-    
-    // Limpa o campo para o próximo pedido
-    document.getElementById('itens-pedido').value = '';
-  });
-</script>
+    // Escuta mudanças de estoque em tempo real
+    supabaseClient
+      .channel('mudanca-estoque')
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'estoque' }, payload => {
+        const reg = payload.new;
+        estoqueAtual[reg.item] = reg.quantidade_disponivel;
+        atualizarContadorVisualEstoque(reg.item);
+      })
+      .subscribe();
+
+    function alterarQuantidade(item, valor) {
+      const novaQtd = pedidoAtual[item] + valor;
+      
+      if (valor > 0 && novaQtd > estoqueAtual[item]) {
+        alert(`Estoque insuficiente! Só restam ${estoqueAtual[item]} unidades.`);
+        return;
+      }
+
+      if (novaQtd >= 0) {
+        pedidoAtual[item] = novaQtd;
+        document.getElementById(`qtd-${item}`).innerText = novaQtd;
+      }
+    }
+
+    function limparContadores() {
+      for (const item in pedidoAtual) {
+        pedidoAtual[item] = 0;
+        document.getElementById(`qtd-${item}`).innerText = 0;
+      }
+    }
+
+    function togglePainelEstoque() {
+      const gaveta = document.getElementById('gaveta-estoque');
+      gaveta.classList.toggle('translate-x-full');
+    }
+
+    // Atualização manual da gaveta lateral para o banco
+    async function salvarEstoqueManual() {
+      const itens = ['carne', 'queijo', 'frango', 'lingua', 'calabresa'];
+      for (const item of itens) {
+        const novoValor = parseInt(document.getElementById(`input-est-${item}`).value) || 0;
+        await supabaseClient.from('estoque').update({ quantidade_disponivel: novoValor }).eq('item', item);
+      }
+      alert('Estoque atualizado!');
+      togglePainelEstoque();
+    }
+
+    // Confirmação e fechamento do pedido
+    document.getElementById('btn-finalizar').addEventListener('click', async () => {
+      const itensFormatados = [];
+      const deparaNomes = { carne: 'Carne', queijo: 'Queijo', frango: 'Frango', lingua: 'Língua', calabresa: 'Calabresa' };
+
+      for (const item in pedidoAtual) {
+        if (pedidoAtual[item] > 0) {
+          itensFormatados.push(`${pedidoAtual[item]}x ${deparaNomes[item]}`);
+        }
+      }
+
+      if (itensFormatados.length === 0) return alert('Selecione pelo menos 1 item!');
+      const itensTextoFinal = itensFormatados.join(', ');
+
+      // Abate do estoque no banco
+      for (const item in pedidoAtual) {
+        if (pedidoAtual[item] > 0) {
+          const novaQtdBanco = estoqueAtual[item] - pedidoAtual[item];
+          await supabaseClient.from('estoque').update({ quantidade_disponivel: novaQtdBanco }).eq('item', item);
+        }
+      }
+
+      // Criação do pedido
+      const { data, error } = await supabaseClient
+        .from('pedidos')
+        .insert([{ itens: itensTextoFinal, status: 'pendente' }])
+        .select()
+        .single();
+
+      if (error) return alert('Erro ao salvar: ' + error.message);
+
+      const urlCliente = `https://bar-rc.vercel.app/cliente.html?id=${data.id}`;
+      const qrCodeUrl = `https://quickchart.io/qr?text=${encodeURIComponent(urlCliente)}&size=200&margin=1`;
+
+      document.getElementById('txt-senha').innerText = data.senha;
+      document.getElementById('img-qrcode').src = qrCodeUrl;
+      document.getElementById('placeholder-caixa').classList.add('hidden');
+      document.getElementById('resultado-pedido').classList.remove('hidden');
+      
+      limparContadores();
+    });
+
+    carregarEstoque();
+  </script>
 </body>
 </html>
