@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
+
 <body class="bg-slate-900 text-white min-h-screen font-sans border-t-8 border-green-600">
 
   <!-- Header -->
   <header class="bg-blue-800 p-4 shadow-lg flex justify-between items-center border-b-4 border-yellow-400">
     <h1 class="text-xl font-black uppercase tracking-wider text-yellow-300">🔥 CHURRASQUEIRA & COZINHA 🔥</h1>
-    <span class="bg-green-600 text-white px-3 py-1 text-xs font-bold rounded-full uppercase tracking-widest animate-pulse">Realtime Ativo</span>
+    <span
+      class="bg-green-600 text-white px-3 py-1 text-xs font-bold rounded-full uppercase tracking-widest animate-pulse">Realtime
+      Ativo</span>
   </header>
 
   <!-- Grade de Pedidos Pendentes -->
@@ -22,8 +26,19 @@
     </div>
   </main>
 
-    <script src="./supabase.js"></script>
+  <script src="./supabase.js"></script>
   <script>
+    async function verificarAutenticacao() {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+
+      // Se não existir uma sessão ativa, chuta o usuário de volta pro login
+      if (!session) {
+        window.location.href = './login.html';
+      }
+    }
+
+    // Executa a checagem imediatamente ao carregar a página
+    verificarAutenticacao();
 
 
     // Carrega os pedidos iniciais que não estão prontos nem entregues
@@ -46,7 +61,7 @@
       const card = document.createElement('div');
       card.id = `card-${pedido.id}`;
       card.className = "bg-slate-800 rounded-xl overflow-hidden border-2 border-yellow-500 shadow-xl flex flex-col justify-between";
-      
+
       card.innerHTML = `
         <div class="bg-yellow-500 p-3 flex justify-between items-center text-slate-900 font-black">
           <span class="text-2xl">#${pedido.senha}</span>
@@ -70,7 +85,7 @@
         .from('pedidos')
         .update({ status: 'pronto' })
         .eq('id', id);
-        
+
       if (!error) {
         document.getElementById(`card-${id}`).remove();
       }
@@ -88,4 +103,5 @@
     carregarFila();
   </script>
 </body>
+
 </html>

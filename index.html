@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
+
+
 <body class="bg-slate-900 text-white min-h-screen font-sans border-t-8 border-yellow-400 overflow-x-hidden">
 
+
+
+
+
+
   <header class="bg-green-700 p-4 shadow-lg flex justify-between items-center border-b-4 border-yellow-400">
-    <h1 class="text-2xl font-black uppercase tracking-wider text-yellow-300">⚽ CAIXA - BAR RUA DA COPA ⚽</h1>
-    <button onclick="togglePainelEstoque()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-lg text-sm border-b-2 border-blue-800 transition-all uppercase tracking-wider">
+    <h1 class="text-2xl font-black uppercase tracking-wider text-yellow-300">⚽ CAIXA - COPAS BAR ⚽</h1>
+    <button onclick="togglePainelEstoque()"
+      class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-lg text-sm border-b-2 border-blue-800 transition-all uppercase tracking-wider">
       ⚙️ Estoque
     </button>
   </header>
@@ -21,9 +30,10 @@
       <div>
         <h2 class="text-xl font-bold mb-4 text-yellow-400 uppercase tracking-wide flex justify-between items-center">
           <span>🍢 Selecione os Churrascos</span>
-          <button onclick="limparContadores()" class="text-xs bg-slate-700 hover:bg-slate-600 text-slate-300 px-2 py-1 rounded transition-colors">Limpar</button>
+          <button onclick="limparContadores()"
+            class="text-xs bg-slate-700 hover:bg-slate-600 text-slate-300 px-2 py-1 rounded transition-colors">Limpar</button>
         </h2>
-        
+
         <div class="space-y-3 mb-6" id="lista-churrascos">
           <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
             <div>
@@ -31,9 +41,11 @@
               <span id="disponivel-carne" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
             </div>
             <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('carne', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <button type="button" onclick="alterarQuantidade('carne', -1)"
+                class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
               <span id="qtd-carne" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('carne', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+              <button type="button" onclick="alterarQuantidade('carne', 1)"
+                class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
             </div>
           </div>
 
@@ -43,9 +55,11 @@
               <span id="disponivel-queijo" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
             </div>
             <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('queijo', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <button type="button" onclick="alterarQuantidade('queijo', -1)"
+                class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
               <span id="qtd-queijo" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('queijo', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+              <button type="button" onclick="alterarQuantidade('queijo', 1)"
+                class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
             </div>
           </div>
 
@@ -55,9 +69,11 @@
               <span id="disponivel-frango" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
             </div>
             <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('frango', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <button type="button" onclick="alterarQuantidade('frango', -1)"
+                class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
               <span id="qtd-frango" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('frango', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+              <button type="button" onclick="alterarQuantidade('frango', 1)"
+                class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
             </div>
           </div>
 
@@ -67,9 +83,11 @@
               <span id="disponivel-lingua" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
             </div>
             <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('lingua', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <button type="button" onclick="alterarQuantidade('lingua', -1)"
+                class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
               <span id="qtd-lingua" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('lingua', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+              <button type="button" onclick="alterarQuantidade('lingua', 1)"
+                class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
             </div>
           </div>
 
@@ -79,20 +97,24 @@
               <span id="disponivel-calabresa" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
             </div>
             <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('calabresa', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <button type="button" onclick="alterarQuantidade('calabresa', -1)"
+                class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
               <span id="qtd-calabresa" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('calabresa', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+              <button type="button" onclick="alterarQuantidade('calabresa', 1)"
+                class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
             </div>
           </div>
         </div>
       </div>
-      
-      <button id="btn-finalizar" class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-4 rounded-lg uppercase tracking-wide transition-all border-b-4 border-green-800 active:border-b-0 text-lg">
+
+      <button id="btn-finalizar"
+        class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-4 rounded-lg uppercase tracking-wide transition-all border-b-4 border-green-800 active:border-b-0 text-lg">
         ⚽ Confirmar Pedido
       </button>
     </div>
 
-    <div class="bg-slate-800 p-6 rounded-xl border-2 border-blue-600 flex flex-col items-center justify-center text-center shadow-2xl min-h-[450px]">
+    <div
+      class="bg-slate-800 p-6 rounded-xl border-2 border-blue-600 flex flex-col items-center justify-center text-center shadow-2xl min-h-[450px]">
       <div id="resultado-pedido" class="hidden space-y-4">
         <h3 class="text-xl font-black text-green-400">PEDIDO GERADO COM SUCESSO!</h3>
         <div class="bg-yellow-400 text-slate-900 font-black text-4xl py-2 px-6 rounded-full inline-block shadow-md">
@@ -103,45 +125,53 @@
           <img id="img-qrcode" src="" alt="QR Code" class="w-48 h-48">
         </div>
       </div>
-      
+
       <div id="placeholder-caixa" class="text-slate-500 font-bold italic">
         Aguardando finalização do próximo pedido...
       </div>
     </div>
   </main>
 
-  <div id="gaveta-estoque" class="fixed top-0 right-0 h-full w-80 bg-slate-800 border-l-4 border-yellow-400 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 p-6 flex flex-col justify-between">
+  <div id="gaveta-estoque"
+    class="fixed top-0 right-0 h-full w-80 bg-slate-800 border-l-4 border-yellow-400 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 p-6 flex flex-col justify-between">
     <div>
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl font-black text-yellow-400 uppercase">⚙️ Ajustar Insumos</h2>
-        <button onclick="togglePainelEstoque()" class="text-slate-400 hover:text-white font-bold text-2xl">&times;</button>
+        <button onclick="togglePainelEstoque()"
+          class="text-slate-400 hover:text-white font-bold text-2xl">&times;</button>
       </div>
-      
+
       <div class="space-y-4">
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🥩 Carne</label>
-          <input type="number" id="input-est-carne" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-carne"
+            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🧀 Queijo</label>
-          <input type="number" id="input-est-queijo" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-queijo"
+            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🍗 Frango</label>
-          <input type="number" id="input-est-frango" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-frango"
+            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">👅 Língua</label>
-          <input type="number" id="input-est-lingua" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-lingua"
+            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🍕 Calabresa</label>
-          <input type="number" id="input-est-calabresa" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-calabresa"
+            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
       </div>
     </div>
 
-    <button onclick="salvarEstoqueManual()" class="w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-black py-3 rounded-lg uppercase tracking-wider text-sm transition-colors mt-4">
+    <button onclick="salvarEstoqueManual()"
+      class="w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-black py-3 rounded-lg uppercase tracking-wider text-sm transition-colors mt-4">
       💾 Salvar Novo Estoque
     </button>
   </div>
@@ -149,6 +179,20 @@
   <script src="./supabase.js"></script>
 
   <script>
+
+
+    async function verificarAutenticacao() {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+
+      // Se não existir uma sessão ativa, chuta o usuário de volta pro login
+      if (!session) {
+        window.location.href = './login.html';
+      }
+    }
+
+    // Executa a checagem imediatamente ao carregar a página
+    verificarAutenticacao();
+
     const pedidoAtual = { carne: 0, queijo: 0, frango: 0, lingua: 0, calabresa: 0 };
     const estoqueAtual = { carne: 0, queijo: 0, frango: 0, lingua: 0, calabresa: 0 };
 
@@ -166,7 +210,7 @@
     function atualizarContadorVisualEstoque(item) {
       const elemento = document.getElementById(`disponivel-${item}`);
       if (elemento) elemento.innerText = `(Disponível: ${estoqueAtual[item]})`;
-      
+
       const inputManual = document.getElementById(`input-est-${item}`);
       if (inputManual) inputManual.value = estoqueAtual[item];
     }
@@ -183,7 +227,7 @@
 
     function alterarQuantidade(item, valor) {
       const novaQtd = pedidoAtual[item] + valor;
-      
+
       if (valor > 0 && novaQtd > estoqueAtual[item]) {
         alert(`Estoque insuficiente! Só restam ${estoqueAtual[item]} unidades.`);
         return;
@@ -256,11 +300,12 @@
       document.getElementById('img-qrcode').src = qrCodeUrl;
       document.getElementById('placeholder-caixa').classList.add('hidden');
       document.getElementById('resultado-pedido').classList.remove('hidden');
-      
+
       limparContadores();
     });
 
     carregarEstoque();
   </script>
 </body>
+
 </html>
