@@ -9,13 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
-
 <body class="bg-slate-900 text-white min-h-screen font-sans border-t-8 border-yellow-400 overflow-x-hidden">
-
-
-
-
-
 
   <header class="bg-green-700 p-4 shadow-lg flex justify-between items-center border-b-4 border-yellow-400">
     <h1 class="text-2xl font-black uppercase tracking-wider text-yellow-300">⚽ CAIXA - COPAS BAR ⚽</h1>
@@ -41,11 +35,9 @@
               <span id="disponivel-carne" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
             </div>
             <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('carne', -1)"
-                class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <button type="button" onclick="alterarQuantidade('carne', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
               <span id="qtd-carne" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('carne', 1)"
-                class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+              <button type="button" onclick="alterarQuantidade('carne', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
             </div>
           </div>
 
@@ -55,11 +47,9 @@
               <span id="disponivel-queijo" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
             </div>
             <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('queijo', -1)"
-                class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <button type="button" onclick="alterarQuantidade('queijo', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
               <span id="qtd-queijo" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('queijo', 1)"
-                class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+              <button type="button" onclick="alterarQuantidade('queijo', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
             </div>
           </div>
 
@@ -69,11 +59,9 @@
               <span id="disponivel-frango" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
             </div>
             <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('frango', -1)"
-                class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <button type="button" onclick="alterarQuantidade('frango', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
               <span id="qtd-frango" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('frango', 1)"
-                class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+              <button type="button" onclick="alterarQuantidade('frango', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
             </div>
           </div>
 
@@ -83,11 +71,9 @@
               <span id="disponivel-lingua" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
             </div>
             <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('lingua', -1)"
-                class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <button type="button" onclick="alterarQuantidade('lingua', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
               <span id="qtd-lingua" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('lingua', 1)"
-                class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+              <button type="button" onclick="alterarQuantidade('lingua', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
             </div>
           </div>
 
@@ -97,33 +83,44 @@
               <span id="disponivel-calabresa" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
             </div>
             <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('calabresa', -1)"
-                class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <button type="button" onclick="alterarQuantidade('calabresa', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
               <span id="qtd-calabresa" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('calabresa', 1)"
-                class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+              <button type="button" onclick="alterarQuantidade('calabresa', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
+            <div>
+              <span class="font-bold text-lg uppercase tracking-wide block">🍤 Camarão</span>
+              <span id="disponivel-camarao" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <button type="button" onclick="alterarQuantidade('camarao', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <span id="qtd-camarao" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
+              <button type="button" onclick="alterarQuantidade('camarao', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
             </div>
           </div>
         </div>
       </div>
 
-      <button id="btn-finalizar"
-        class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-4 rounded-lg uppercase tracking-wide transition-all border-b-4 border-green-800 active:border-b-0 text-lg">
+      <button id="btn-finalizar" class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-4 rounded-lg uppercase tracking-wide transition-all border-b-4 border-green-800 active:border-b-0 text-lg">
         ⚽ Confirmar Pedido
       </button>
     </div>
 
-    <div
-      class="bg-slate-800 p-6 rounded-xl border-2 border-blue-600 flex flex-col items-center justify-center text-center shadow-2xl min-h-[450px]">
-      <div id="resultado-pedido" class="hidden space-y-4">
+    <div class="bg-slate-800 p-6 rounded-xl border-2 border-blue-600 flex flex-col items-center justify-center text-center shadow-2xl min-h-[450px]">
+      <div id="resultado-pedido" class="hidden space-y-6 w-full">
         <h3 class="text-xl font-black text-green-400">PEDIDO GERADO COM SUCESSO!</h3>
         <div class="bg-yellow-400 text-slate-900 font-black text-4xl py-2 px-6 rounded-full inline-block shadow-md">
           SENHA: #<span id="txt-senha">00</span>
         </div>
         <p class="text-sm text-slate-300">Peça para o cliente escanear o QR Code para acompanhar a fila:</p>
         <div class="bg-white p-3 rounded-lg inline-block shadow-inner">
-          <img id="img-qrcode" src="" alt="QR Code" class="w-48 h-48">
-        </div>
+          <img id="img-qrcode" src="" alt="QR Code" class="w-48 h-48 mx-auto">
+        </div> 
+        <button id="btn-cancelar" class="w-full bg-red-600 hover:bg-red-500 text-white font-black py-3 rounded-lg uppercase tracking-wide transition-all border-b-4 border-red-800 active:border-b-0 text-lg mt-4">
+          ❌ Cancelar Último Pedido
+        </button>
       </div>
 
       <div id="placeholder-caixa" class="text-slate-500 font-bold italic">
@@ -132,46 +129,42 @@
     </div>
   </main>
 
-  <div id="gaveta-estoque"
-    class="fixed top-0 right-0 h-full w-80 bg-slate-800 border-l-4 border-yellow-400 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 p-6 flex flex-col justify-between">
+  <div id="gaveta-estoque" class="fixed top-0 right-0 h-full w-80 bg-slate-800 border-l-4 border-yellow-400 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 p-6 flex flex-col justify-between overflow-y-auto">
     <div>
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl font-black text-yellow-400 uppercase">⚙️ Ajustar Insumos</h2>
-        <button onclick="togglePainelEstoque()"
-          class="text-slate-400 hover:text-white font-bold text-2xl">&times;</button>
+        <button onclick="togglePainelEstoque()" class="text-slate-400 hover:text-white font-bold text-2xl">&times;</button>
       </div>
 
       <div class="space-y-4">
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🥩 Carne</label>
-          <input type="number" id="input-est-carne"
-            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-carne" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🧀 Queijo</label>
-          <input type="number" id="input-est-queijo"
-            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-queijo" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🍗 Frango</label>
-          <input type="number" id="input-est-frango"
-            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-frango" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">👅 Língua</label>
-          <input type="number" id="input-est-lingua"
-            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-lingua" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🍕 Calabresa</label>
-          <input type="number" id="input-est-calabresa"
-            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-calabresa" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm font-bold uppercase block text-green-400">🍤 Camarão</label>
+          <input type="number" id="input-est-camarao" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
       </div>
     </div>
 
-    <button onclick="salvarEstoqueManual()"
-      class="w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-black py-3 rounded-lg uppercase tracking-wider text-sm transition-colors mt-4">
+    <button onclick="salvarEstoqueManual()" class="w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-black py-3 rounded-lg uppercase tracking-wider text-sm transition-colors mt-4">
       💾 Salvar Novo Estoque
     </button>
   </div>
@@ -179,24 +172,22 @@
   <script src="./supabase.js"></script>
 
   <script>
-
-
     async function verificarAutenticacao() {
       const { data: { session } } = await supabaseClient.auth.getSession();
-
-      // Se não existir uma sessão ativa, chuta o usuário de volta pro login
       if (!session) {
         window.location.href = './login.html';
       }
     }
 
-    // Executa a checagem imediatamente ao carregar a página
     verificarAutenticacao();
 
-    const pedidoAtual = { carne: 0, queijo: 0, frango: 0, lingua: 0, calabresa: 0 };
-    const estoqueAtual = { carne: 0, queijo: 0, frango: 0, lingua: 0, calabresa: 0 };
+    const pedidoAtual = { carne: 0, queijo: 0, frango: 0, lingua: 0, calabresa: 0, camarao: 0 };
+    const estoqueAtual = { carne: 0, queijo: 0, frango: 0, lingua: 0, calabresa: 0, camarao: 0 };
+    
+    // Variáveis para guardar os dados do último pedido e permitir estorno
+    let ultimoPedidoId = null;
+    let ultimoPedidoItens = {};
 
-    // Busca estoque inicial do banco
     async function carregarEstoque() {
       const { data } = await supabaseClient.from('estoque').select('*');
       if (data) {
@@ -215,7 +206,6 @@
       if (inputManual) inputManual.value = estoqueAtual[item];
     }
 
-    // Escuta mudanças de estoque em tempo real
     supabaseClient
       .channel('mudanca-estoque')
       .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'estoque' }, payload => {
@@ -251,9 +241,8 @@
       gaveta.classList.toggle('translate-x-full');
     }
 
-    // Atualização manual da gaveta lateral para o banco
     async function salvarEstoqueManual() {
-      const itens = ['carne', 'queijo', 'frango', 'lingua', 'calabresa'];
+      const itens = ['carne', 'queijo', 'frango', 'lingua', 'calabresa', 'camarao'];
       for (const item of itens) {
         const novoValor = parseInt(document.getElementById(`input-est-${item}`).value) || 0;
         await supabaseClient.from('estoque').update({ quantidade_disponivel: novoValor }).eq('item', item);
@@ -262,14 +251,19 @@
       togglePainelEstoque();
     }
 
-    // Confirmação e fechamento do pedido
+    // FINALIZAR PEDIDO
     document.getElementById('btn-finalizar').addEventListener('click', async () => {
       const itensFormatados = [];
-      const deparaNomes = { carne: 'Carne', queijo: 'Queijo', frango: 'Frango', lingua: 'Língua', calabresa: 'Calabresa' };
+      const deparaNomes = { carne: 'Carne', queijo: 'Queijo', frango: 'Frango', lingua: 'Língua', calabresa: 'Calabresa', camarao: 'Camarão' };
+      
+      // Limpa os dados do último pedido gravado na memória
+      ultimoPedidoItens = {};
 
       for (const item in pedidoAtual) {
         if (pedidoAtual[item] > 0) {
           itensFormatados.push(`${pedidoAtual[item]}x ${deparaNomes[item]}`);
+          // Guarda o que foi pedido para caso precise cancelar depois
+          ultimoPedidoItens[item] = pedidoAtual[item]; 
         }
       }
 
@@ -293,6 +287,9 @@
 
       if (error) return alert('Erro ao salvar: ' + error.message);
 
+      // Guarda a ID do pedido recém criado
+      ultimoPedidoId = data.id;
+
       const urlCliente = `https://bar-rc.vercel.app/cliente.html?id=${data.id}`;
       const qrCodeUrl = `https://quickchart.io/qr?text=${encodeURIComponent(urlCliente)}&size=200&margin=1`;
 
@@ -302,6 +299,34 @@
       document.getElementById('resultado-pedido').classList.remove('hidden');
 
       limparContadores();
+    });
+
+    // CANCELAR PEDIDO
+    document.getElementById('btn-cancelar').addEventListener('click', async () => {
+      if (!ultimoPedidoId) return;
+
+      const confirmacao = confirm('Tem certeza que deseja cancelar o último pedido e estornar o estoque?');
+      if (!confirmacao) return;
+
+      // 1. Deleta o pedido do banco
+      const { error } = await supabaseClient.from('pedidos').delete().eq('id', ultimoPedidoId);
+      if (error) return alert('Erro ao cancelar: ' + error.message);
+
+      // 2. Devolve o estoque de volta para o banco
+      for (const item in ultimoPedidoItens) {
+        const novaQtdBanco = estoqueAtual[item] + ultimoPedidoItens[item];
+        await supabaseClient.from('estoque').update({ quantidade_disponivel: novaQtdBanco }).eq('item', item);
+      }
+
+      // 3. Reseta a tela
+      document.getElementById('resultado-pedido').classList.add('hidden');
+      document.getElementById('placeholder-caixa').classList.remove('hidden');
+      
+      // Limpa a memória para não cancelar o mesmo pedido duas vezes
+      ultimoPedidoId = null;
+      ultimoPedidoItens = {};
+
+      alert('Pedido cancelado com sucesso e estoque devolvido!');
     });
 
     carregarEstoque();

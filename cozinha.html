@@ -92,10 +92,19 @@
     }
 
     // Escuta em tempo real se novos pedidos entram pela tela do caixa
+// Escuta em tempo real entradas E saídas de pedidos
     supabaseClient
       .channel('fila-cozinha')
+      // Escuta novos pedidos (INSERT)
       .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'pedidos' }, payload => {
-        renderizarCard(payload.new);
+        renderizarCard(payload.new, true);
+      })
+      // Escuta pedidos cancelados/deletados (DELETE)
+      .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'pedidos' }, payload => {
+        const cardCancelado = document.getElementById(`card-${payload.old.id}`);
+        if (cardCancelado) {
+          cardCancelado.remove(); // Fica invisível e some da tela na mesma hora
+        }
       })
       .subscribe();
 
