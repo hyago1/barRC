@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caixa - Bar da Rua da Copa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-slate-900 text-white min-h-screen font-sans border-t-8 border-yellow-400">
+
+  <!-- Header -->
+  <header class="bg-green-700 p-4 shadow-lg text-center border-b-4 border-yellow-400">
+    <h1 class="text-2xl font-black uppercase tracking-wider text-yellow-300">⚽ CAIXA - BAR DA COPA ⚽</h1>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-4 grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+    <!-- Formulário de Pedidos -->
+    <div class="bg-slate-800 p-6 rounded-xl border-2 border-green-600 shadow-2xl">
+      <h2 class="text-xl font-bold mb-4 text-yellow-400 uppercase">Novo Pedido</h2>
+      
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-semibold mb-1">Itens do Churrasco / Camarão:</label>
+          <textarea id="itens-pedido" rows="3" class="w-full p-3 bg-slate-700 border-2 border-slate-600 rounded-lg text-white font-bold focus:border-yellow-400 focus:outline-none" placeholder="Ex: 2x Espetinho de Carne, 1x Camarão Alho e Óleo"></textarea>
+        </div>
+        
+        <button id="btn-finalizar" class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-4 rounded-lg uppercase tracking-wide transition-all border-b-4 border-green-800 active:border-b-0 text-lg">
+          ⚽ Confirmar Pedido
+        </button>
+      </div>
+    </div>
+
+    <!-- Painel de Saída (QR Code / Senha) -->
+    <div class="bg-slate-800 p-6 rounded-xl border-2 border-blue-600 flex flex-col items-center justify-center text-center shadow-2xl">
+      <div id="resultado-pedido" class="hidden space-y-4">
+        <h3 class="text-xl font-black text-green-400">PEDIDO GERADO COM SUCESSO!</h3>
+        <div class="bg-yellow-400 text-slate-900 font-black text-4xl py-2 px-6 rounded-full inline-block shadow-md">
+          SENHA: #<span id="txt-senha">00</span>
+        </div>
+        <p class="text-sm text-slate-300">Peça para o cliente escanear o QR Code abaixo para acompanhar a fila pelo bolso:</p>
+        <div class="bg-white p-3 rounded-lg inline-block shadow-inner">
+          <img id="img-qrcode" src="" alt="QR Code do Pedido" class="w-48 h-48">
+        </div>
+      </div>
+      
+      <div id="placeholder-caixa" class="text-slate-500 font-bold italic">
+        Aguardando finalização do próximo pedido...
+      </div>
+    </div>
+  </main>
+
+  <script src="./supabase.js"></script>
+
+
+
+<script>
+  // Remova qualquer linha que tente fazer "const supabase = ..." aqui dentro,
+  // pois a conexão já está vindo do seu arquivo './supabase.js' como 'supabaseClient'
+
+  document.getElementById('btn-finalizar').addEventListener('click', async () => {
+    const itensValue = document.getElementById('itens-pedido').value;
+    if (!itensValue.trim()) return alert('Digite os itens do pedido!');
+
+    // 🔥 CORREÇÃO AQUI: Mudamos de 'supabase.from' para 'supabaseClient.from'
+    const { data, error } = await supabaseClient
+      .from('pedidos')
+      .insert([{ itens: itensValue, status: 'pendente' }])
+      .select()
+      .single();
+
+    if (error) {
+      alert('Erro ao salvar pedido: ' + error.message);
+      return;
+    }
+
+    // URL que o cliente vai acessar (Ajuste para o seu domínio real depois)
+    const urlCliente = `http://127.0.0.1:5500/cliente.html?id=${data.id}`;
+    
+    // Gera o QR Code dinamicamente
+    const qrCodeUrl = `https://quickchart.io/qr?text=${encodeURIComponent(urlCliente)}&size=200&margin=1`;
+
+    // Atualiza a interface do Caixa
+    document.getElementById('txt-senha').innerText = data.senha;
+    document.getElementById('img-qrcode').src = qrCodeUrl;
+    document.getElementById('placeholder-caixa').classList.add('hidden');
+    document.getElementById('resultado-pedido').classList.remove('hidden');
+    
+    // Limpa o campo para o próximo pedido
+    document.getElementById('itens-pedido').value = '';
+  });
+</script>
+</body>
+</html>
