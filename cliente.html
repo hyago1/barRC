@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,25 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     @keyframes pulse-verde {
-      0%, 100% { background-color: #15803d; }
-      50% { background-color: #eab308; }
+
+      0%,
+      100% {
+        background-color: #15803d;
+      }
+
+      50% {
+        background-color: #eab308;
+      }
     }
+
     .retirada-frenetica {
       animation: pulse-verde 1.5s infinite;
     }
   </style>
 </head>
-<body id="corpo-cliente" class="bg-slate-900 text-white min-h-screen font-sans flex flex-col justify-between transition-all duration-500">
+
+<body id="corpo-cliente"
+  class="bg-slate-900 text-white min-h-screen font-sans flex flex-col justify-between transition-all duration-500">
 
   <!-- Topo -->
   <header class="bg-blue-900 p-4 text-center border-b-4 border-green-500 shadow-md">
@@ -25,9 +36,10 @@
 
   <!-- Conteúdo Principal -->
   <main class="flex-grow flex flex-col items-center justify-center p-6 text-center">
-    
-    <div id="box-status" class="w-full max-w-sm bg-slate-800 p-8 rounded-2xl border-2 border-slate-700 shadow-2xl space-y-6">
-      
+
+    <div id="box-status"
+      class="w-full max-w-sm bg-slate-800 p-8 rounded-2xl border-2 border-slate-700 shadow-2xl space-y-6">
+
       <!-- Número da Senha -->
       <div>
         <p class="text-xs uppercase tracking-widest text-slate-400 font-bold">Sua Senha</p>
@@ -38,10 +50,12 @@
 
       <!-- Status Visual -->
       <div id="status-container" class="space-y-2">
-        <div id="badge-status" class="inline-block bg-blue-600 text-white font-black px-4 py-2 rounded-full uppercase text-sm tracking-wider shadow">
+        <div id="badge-status"
+          class="inline-block bg-blue-600 text-white font-black px-4 py-2 rounded-full uppercase text-sm tracking-wider shadow">
           Carregando...
         </div>
-        <p id="msg-status" class="text-slate-300 text-sm font-medium">Buscando informações do jogo e do seu churrasco...</p>
+        <p id="msg-status" class="text-slate-300 text-sm font-medium">Buscando informações do jogo e do seu churrasco...
+        </p>
       </div>
 
     </div>
@@ -53,7 +67,7 @@
     Pode curtir o jogo! A tela avisa assim que sair da brasa.
   </footer>
 
-    <script src="./supabase.js"></script>
+  <script src="./supabase.js"></script>
   <script>
 
 
@@ -84,7 +98,7 @@
       // 2. ESCUTA EM TEMPO REAL: Atualiza na hora se o status mudar na cozinha
       supabaseClient
         .channel(`status-${pedidoId}`)
-        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'pedidos', filter: `id=eq.${pedidoId}` }, 
+        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'pedidos', filter: `id=eq.${pedidoId}` },
           payload => {
             atualizarInterfaceCliente(payload.new);
           }
@@ -94,7 +108,7 @@
 
     function atualizarInterfaceCliente(pedido) {
       document.getElementById('lbl-senha').innerText = pedido.senha;
-      
+
       const badge = document.getElementById('badge-status');
       const msg = document.getElementById('msg-status');
       const corpo = document.getElementById('corpo-cliente');
@@ -104,12 +118,12 @@
         badge.className = "inline-block bg-blue-600 text-white font-black px-4 py-2 rounded-full uppercase text-sm tracking-wider";
         badge.innerText = "⏳ Na Fila";
         msg.innerText = "Seu pedido entrou na fila da churrasqueira. Pode pegar sua bebida!";
-      } 
+      }
       else if (pedido.status === 'preparando') {
         badge.className = "inline-block bg-yellow-500 text-slate-900 font-black px-4 py-2 rounded-full uppercase text-sm tracking-wider animate-pulse";
         badge.innerText = "🔥 Na Brasa";
         msg.innerText = "O churrasqueiro já colocou seu pedido no fogo! Falta pouco.";
-      } 
+      }
       else if (pedido.status === 'pronto') {
         // Estilo de Alerta de Gol / Pronto
         corpo.className = "retirada-frenetica text-white min-h-screen font-sans flex flex-col justify-between transition-all duration-500";
@@ -120,13 +134,17 @@
         msg.innerText = "SEU CHURRASCO FICOU PRONTO! Vá ao balcão e mostre esta tela.";
 
         // API de Vibração do Celular (Vibra por 1s, para 500ms, vibra por 1s)
-if (navigator.vibrate) {
-  navigator.vibrate(500);
-}
+        if ("vibrate" in navigator) {
+          // Dispositivo suporta vibração 
+          // navigator.vibrate(500);
+        }
+
       }
+
     }
 
     gerenciarPedido();
   </script>
 </body>
+
 </html>
