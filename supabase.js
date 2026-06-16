@@ -5,3 +5,6 @@ const CHAVE_DO_BANCO = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmF
 
 // Aqui usamos a biblioteca global (supabase) para criar o SEU cliente customizado (window.supabaseClient)
 window.supabaseClient = supabase.createClient(URL_DO_BANCO, CHAVE_DO_BANCO);
+
+
+
