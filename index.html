@@ -29,78 +29,7 @@
         </h2>
 
         <div class="space-y-3 mb-6" id="lista-churrascos">
-          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
-            <div>
-              <span class="font-bold text-lg uppercase tracking-wide block">🥩 Carne</span>
-              <span id="disponivel-carne" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('carne', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
-              <span id="qtd-carne" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('carne', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
-            <div>
-              <span class="font-bold text-lg uppercase tracking-wide block">🧀 Queijo</span>
-              <span id="disponivel-queijo" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('queijo', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
-              <span id="qtd-queijo" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('queijo', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
-            <div>
-              <span class="font-bold text-lg uppercase tracking-wide block">🍗 Frango</span>
-              <span id="disponivel-frango" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('frango', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
-              <span id="qtd-frango" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('frango', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
-            <div>
-              <span class="font-bold text-lg uppercase tracking-wide block">👅 Língua</span>
-              <span id="disponivel-lingua" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('lingua', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
-              <span id="qtd-lingua" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('lingua', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
-            <div>
-              <span class="font-bold text-lg uppercase tracking-wide block">🍕 Calabresa</span>
-              <span id="disponivel-calabresa" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('calabresa', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
-              <span id="qtd-calabresa" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('calabresa', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
-            <div>
-              <span class="font-bold text-lg uppercase tracking-wide block">🍤 Camarão</span>
-              <span id="disponivel-camarao" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <button type="button" onclick="alterarQuantidade('camarao', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
-              <span id="qtd-camarao" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
-              <button type="button" onclick="alterarQuantidade('camarao', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
-            </div>
-          </div>
-        </div>
+       </div>
       </div>
 
       <button id="btn-finalizar" class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-4 rounded-lg uppercase tracking-wide transition-all border-b-4 border-green-800 active:border-b-0 text-lg">
@@ -168,6 +97,32 @@
       💾 Salvar Novo Estoque
     </button>
   </div>
+  <script>
+    let items = document.getElementById('lista-churrascos');
+    items.innerHTML = '';
+    const churrascos =  [
+      {name:'carne',titulo:'🥩 Carne'},
+      {name:'queijo',titulo:'🧀 Queijo'} ,
+      {name:'frango',titulo:'🍗 Frango'} ,
+      {name:'lingua',titulo:'👅 Língua'} ,
+      {name:'calabresa',titulo:'🍕 Calabresa'},
+      {name:'camarao',titulo:'🍤 Camarão'}
+     ]
+    churrascos.forEach(item => {
+      items.innerHTML += `
+      <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
+            <div>
+              <span class="font-bold text-lg uppercase tracking-wide block">${item.titulo}</span>
+              <span id="disponivel-${item.name}" class="text-xs text-slate-400 font-arne" class="text-xs text-slate-400 font-normal block">(Carregando...)</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <button type="button" onclick="alterarQuantidade('${item.name}', -1)" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-blue-800 select-none">-</button>
+              <span id="qtd-${item.name}" class="w-8 text-center text-xl font-black text-yellow-400">0</span>
+              <button type="button" onclick="alterarQuantidade('${item.name}', 1)" class="w-10 h-10 bg-green-600 hover:bg-green-500 font-black text-xl rounded-full flex items-center justify-center border-b-2 border-green-800 select-none">+</button>
+            </div>
+          </div>`
+    })
+  </script>
 
   <script src="./supabase.js"></script>
 
