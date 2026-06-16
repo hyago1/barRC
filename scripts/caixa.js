@@ -1,11 +1,3 @@
-async function verificarAutenticacao() {
-    const { data: { session } } = await supabaseClient.auth.getSession();
-    if (!session) {
-        window.location.href = './login.html';
-    }
-}
-
-verificarAutenticacao();
 
 
 const pedidoAtual = { carne: 0, queijo: 0, frango: 0, lingua: 0, calabresa: 0, camarao: 0 };

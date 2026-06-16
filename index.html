@@ -29,15 +29,17 @@
         </h2>
 
         <div class="space-y-3 mb-6" id="lista-churrascos">
-       </div>
+        </div>
       </div>
 
-      <button id="btn-finalizar" class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-4 rounded-lg uppercase tracking-wide transition-all border-b-4 border-green-800 active:border-b-0 text-lg">
+      <button id="btn-finalizar"
+        class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-4 rounded-lg uppercase tracking-wide transition-all border-b-4 border-green-800 active:border-b-0 text-lg">
         ⚽ Confirmar Pedido
       </button>
     </div>
 
-    <div class="bg-slate-800 p-6 rounded-xl border-2 border-blue-600 flex flex-col items-center justify-center text-center shadow-2xl min-h-[450px]">
+    <div
+      class="bg-slate-800 p-6 rounded-xl border-2 border-blue-600 flex flex-col items-center justify-center text-center shadow-2xl min-h-[450px]">
       <div id="resultado-pedido" class="hidden space-y-6 w-full">
         <h3 class="text-xl font-black text-green-400">PEDIDO GERADO COM SUCESSO!</h3>
         <div class="bg-yellow-400 text-slate-900 font-black text-4xl py-2 px-6 rounded-full inline-block shadow-md">
@@ -46,8 +48,9 @@
         <p class="text-sm text-slate-300">Peça para o cliente escanear o QR Code para acompanhar a fila:</p>
         <div class="bg-white p-3 rounded-lg inline-block shadow-inner">
           <img id="img-qrcode" src="" alt="QR Code" class="w-48 h-48 mx-auto">
-        </div> 
-        <button id="btn-cancelar" class="w-full bg-red-600 hover:bg-red-500 text-white font-black py-3 rounded-lg uppercase tracking-wide transition-all border-b-4 border-red-800 active:border-b-0 text-lg mt-4">
+        </div>
+        <button id="btn-cancelar"
+          class="w-full bg-red-600 hover:bg-red-500 text-white font-black py-3 rounded-lg uppercase tracking-wide transition-all border-b-4 border-red-800 active:border-b-0 text-lg mt-4">
           ❌ Cancelar Último Pedido
         </button>
       </div>
@@ -58,56 +61,65 @@
     </div>
   </main>
 
-  <div id="gaveta-estoque" class="fixed top-0 right-0 h-full w-80 bg-slate-800 border-l-4 border-yellow-400 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 p-6 flex flex-col justify-between overflow-y-auto">
+  <div id="gaveta-estoque"
+    class="fixed top-0 right-0 h-full w-80 bg-slate-800 border-l-4 border-yellow-400 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 p-6 flex flex-col justify-between overflow-y-auto">
     <div>
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl font-black text-yellow-400 uppercase">⚙️ Ajustar Insumos</h2>
-        <button onclick="togglePainelEstoque()" class="text-slate-400 hover:text-white font-bold text-2xl">&times;</button>
+        <button onclick="togglePainelEstoque()"
+          class="text-slate-400 hover:text-white font-bold text-2xl">&times;</button>
       </div>
 
       <div class="space-y-4">
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🥩 Carne</label>
-          <input type="number" id="input-est-carne" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-carne"
+            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🧀 Queijo</label>
-          <input type="number" id="input-est-queijo" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-queijo"
+            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🍗 Frango</label>
-          <input type="number" id="input-est-frango" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-frango"
+            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">👅 Língua</label>
-          <input type="number" id="input-est-lingua" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-lingua"
+            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🍕 Calabresa</label>
-          <input type="number" id="input-est-calabresa" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-calabresa"
+            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
         <div class="space-y-1">
           <label class="text-sm font-bold uppercase block text-green-400">🍤 Camarão</label>
-          <input type="number" id="input-est-camarao" class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
+          <input type="number" id="input-est-camarao"
+            class="w-full p-2 bg-slate-700 border border-slate-600 rounded text-center text-xl font-black text-white focus:outline-none">
         </div>
       </div>
     </div>
 
-    <button onclick="salvarEstoqueManual()" class="w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-black py-3 rounded-lg uppercase tracking-wider text-sm transition-colors mt-4">
+    <button onclick="salvarEstoqueManual()"
+      class="w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-black py-3 rounded-lg uppercase tracking-wider text-sm transition-colors mt-4">
       💾 Salvar Novo Estoque
     </button>
   </div>
   <script>
     let items = document.getElementById('lista-churrascos');
     items.innerHTML = '';
-    const churrascos =  [
-      {name:'carne',titulo:'🥩 Carne'},
-      {name:'queijo',titulo:'🧀 Queijo'} ,
-      {name:'frango',titulo:'🍗 Frango'} ,
-      {name:'lingua',titulo:'👅 Língua'} ,
-      {name:'calabresa',titulo:'🍕 Calabresa'},
-      {name:'camarao',titulo:'🍤 Camarão'}
-     ]
+    const churrascos = [
+      { name: 'carne', titulo: '🥩 Carne' },
+      { name: 'queijo', titulo: '🧀 Queijo' },
+      { name: 'frango', titulo: '🍗 Frango' },
+      { name: 'lingua', titulo: '👅 Língua' },
+      { name: 'calabresa', titulo: '🍕 Calabresa' },
+      { name: 'camarao', titulo: '🍤 Camarão' }
+    ]
     churrascos.forEach(item => {
       items.innerHTML += `
       <div class="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg border border-slate-600">
@@ -125,7 +137,17 @@
   </script>
 
   <script src="./supabase.js"></script>
-<script src="./scripts/caixa.js"></script>
+  <script>
+    async function verificarAutenticacao() {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (!session) {
+        window.location.href = './index.html';
+      }
+    }
+
+    verificarAutenticacao();
+  </script>
+  <script src="./scripts/caixa.js"></script>
 </body>
 
 </html>

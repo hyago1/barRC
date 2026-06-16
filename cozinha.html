@@ -27,6 +27,16 @@
   </main>
 
   <script src="./supabase.js"></script>
+  <script>
+    async function verificarAutenticacao() {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (!session) {
+        window.location.href = './index.html';
+      }
+    }
+
+    verificarAutenticacao();
+  </script>
   <script src="./scripts/cozinhaScript.js"></script>
 </body>
 
